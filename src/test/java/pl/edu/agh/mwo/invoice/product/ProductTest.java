@@ -1,6 +1,7 @@
 package pl.edu.agh.mwo.invoice.product;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
@@ -32,7 +33,8 @@ public class ProductTest {
     @Test
     public void testPriceWithTax() {
         Product product = new DairyProduct("Oscypek", new BigDecimal("100.0"));
-        Assert.assertThat(new BigDecimal("108"), Matchers.comparesEqualTo(product.getPriceWithTax()));
+        Calendar c = Calendar.getInstance();
+        Assert.assertThat(new BigDecimal("108"), Matchers.comparesEqualTo(product.getPriceWithTax(c)));
     }
 
     @Test(expected = IllegalArgumentException.class)

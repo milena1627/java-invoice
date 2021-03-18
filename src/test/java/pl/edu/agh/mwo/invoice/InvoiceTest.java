@@ -132,7 +132,7 @@ public class InvoiceTest {
 	
 	
 	@Test (expected = IllegalArgumentException.class)
-	public void testAddProduct() {
+	public void testAddingProductwithNullandNegativeQty() {
 		 Product np = new OtherProduct(null, new BigDecimal("2.30"));
 	        invoice.addProduct(np, -1);
 	}

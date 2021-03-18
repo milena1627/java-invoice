@@ -131,6 +131,12 @@ public class InvoiceTest {
 	}
 	
 	
+	@Test (expected = IllegalArgumentException.class)
+	public void testAddProduct() {
+		 Product np = new OtherProduct(null, new BigDecimal("2.30"));
+	        invoice.addProduct(np, -1);
+	}
+	
 	@Test
 	public void testGetListOfProducts() {
 		invoice.addProduct(new DairyProduct("Maślanka", new BigDecimal("5")), 2);
